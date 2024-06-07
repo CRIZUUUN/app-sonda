@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333333; /* Color de texto */
+}
+
+h1 {
+    background-color: #1a5276; /* Fondo azul oscuro */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px 20px; /* Espaciado interior */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+select, input[type="file"], input[type="submit"] {
+    margin: 10px 0; /* Espaciado exterior */
+    padding: 8px; /* Espaciado interior */
+    border: 1px solid #cccccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+input[type="submit"] {
+    background-color: #1a5276; /* Fondo azul oscuro */
+    color: #ffffff; /* Color de texto blanco */
+    cursor: pointer; /* Cursor de selección */
+}
+
+input[type="submit"]:hover {
+    background-color: #154360; /* Fondo azul un poco más oscuro al pasar el ratón */
+}
+
+ul {
+    list-style-type: none; /* Eliminar viñetas de la lista */
+    padding: 0; /* Eliminar el relleno predeterminado */
+}
+
+li {
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+form {
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilos para enlaces */
+a {
+    color: #1a5276; /* Color de enlace azul oscuro */
+    text-decoration: none; /* Eliminar subrayado */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
