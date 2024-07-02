@@ -1,49 +1,67 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    color: #333333; /* Color de texto gris oscuro */
+    margin: 0; /* Eliminar margen exterior predeterminado */
+    padding: 0; /* Eliminar relleno predeterminado */
+    display: flex;
+    justify-content: center; /* Centrar contenido horizontalmente */
+    align-items: flex-start; /* Alinear contenido hacia arriba */
+    min-height: 100vh; /* Alto mínimo de la ventana */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo del contenido */
+    padding: 20px;
     background-color: #ffffff; /* Fondo blanco */
-    color: #333333; /* Color de texto */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 h1 {
-    background-color: #1a5276; /* Fondo azul oscuro */
+    background-color: #3498db; /* Fondo azul */
     color: #ffffff; /* Color de texto blanco */
-    padding: 10px 20px; /* Espaciado interior */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-select, input[type="file"], input[type="submit"] {
-    margin: 10px 0; /* Espaciado exterior */
-    padding: 8px; /* Espaciado interior */
-    border: 1px solid #cccccc; /* Borde gris */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-input[type="submit"] {
-    background-color: #1a5276; /* Fondo azul oscuro */
-    color: #ffffff; /* Color de texto blanco */
-    cursor: pointer; /* Cursor de selección */
-}
-
-input[type="submit"]:hover {
-    background-color: #154360; /* Fondo azul un poco más oscuro al pasar el ratón */
-}
-
-ul {
-    list-style-type: none; /* Eliminar viñetas de la lista */
-    padding: 0; /* Eliminar el relleno predeterminado */
-}
-
-li {
-    margin-bottom: 10px; /* Espaciado inferior */
+    padding: 12px 24px; /* Espaciado interior */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Alinear texto al centro */
+    margin-top: 0; /* Eliminar margen superior */
 }
 
 form {
     margin-bottom: 20px; /* Espaciado inferior */
 }
 
+form > * {
+    margin-bottom: 10px; /* Espaciado inferior para elementos del formulario */
+}
+
+input[type="submit"] {
+    background-color: #3498db; /* Fondo azul */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px 20px; /* Espaciado interior */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de selección */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9; /* Fondo azul más oscuro al pasar el ratón */
+}
+
+ul {
+    list-style-type: none; /* Eliminar viñetas de la lista */
+    padding: 0; /* Eliminar relleno predeterminado */
+}
+
+li {
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
 /* Estilos para enlaces */
 a {
-    color: #1a5276; /* Color de enlace azul oscuro */
+    color: #3498db; /* Color de enlace azul */
     text-decoration: none; /* Eliminar subrayado */
 }
 

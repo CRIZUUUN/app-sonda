@@ -31,7 +31,6 @@ def list_files(directory):
             file_list.append({'filename': file, 'directory': root, 'upload_date': upload_date})
     return file_list
 
-
 # Ruta principal que muestra la estructura de directorios
 @app.route('/')
 def index():
@@ -55,15 +54,43 @@ def do_upload():
     if upload:
         if not os.path.exists(os.path.dirname(save_path)):
             os.makedirs(os.path.dirname(save_path))
-        upload.save(save_path)
-        return 'Archivo guardado con éxito en {}'.format(save_path)
+        
+        # Verificar si el archivo ya existe
+        if os.path.exists(save_path):
+            return '''
+                <script>
+                    if (confirm('El archivo ya existe. ¿Deseas sobrescribirlo?')) {
+                        // Continuar con la carga y sobrescritura del archivo
+                        fetch('/upload', {{
+                            method: 'POST',
+                            body: new FormData(document.querySelector('form'))
+                        }}).then(response => {{
+                            if (response.ok) {{
+                                alert('Archivo guardado con éxito en {}');
+                                location.href = '/'; // Redirigir a la página principal
+                            }} else {{
+                                alert('Error al guardar el archivo.');
+                            }}
+                        }});
+                    } else {
+                        alert('No se sobrescribirá el archivo.');
+                    }
+                </script>
+                <button onclick="window.location.href = '/';">Aceptar</button>
+            '''.format(save_path)
+        else:
+            upload.save(save_path)
+            return '''
+                Archivo guardado con éxito en {}<br>
+                <button onclick="window.location.href = '/';">Aceptar</button>
+            '''.format(save_path)
     else:
         return 'No se pudo guardar el archivo.'
 
 # Ruta para servir archivos estáticos (CSS, JS, etc.)
-@app.route('/static/<filepath:path>')
-def serve_static(filepath):
-    return static_file(filepath, root='./static')
+@app.route('/style.css')
+def serve_css():
+    return static_file('style.css', root='.')
 
 # Ruta para manejar las solicitudes de eliminación
 @app.route('/delete', method='POST')
@@ -73,7 +100,10 @@ def delete_file():
     file_path = os.path.join(directory, filename)
     if os.path.exists(file_path):
         os.remove(file_path)
-        return 'Archivo eliminado con éxito.'
+        return '''
+            Archivo eliminado con éxito.<br>
+            <button onclick="window.location.href = '/';">Aceptar</button>
+        '''
     else:
         return 'El archivo no existe o no se puede eliminar.'
     
