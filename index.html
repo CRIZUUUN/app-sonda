@@ -16,17 +16,17 @@
             <label for="upload">Selecciona un archivo:</label><br>
             <input type="file" id="upload" name="upload" accept="*/*" required><br>
             
-            <label for="category">Selecciona una categoría:</label>
+            <label for="category">Selecciona un metodo:</label>
             <select id="category" name="category" onchange="updateSubdirectories()" class="form-control">
                 <option value="interfaz">Interfaz</option>
                 <option value="pantalla">Pantalla</option>
             </select>
             
-            <label for="subdirectory">Selecciona un subdirectorio:</label>
+            <label for="subdirectory">Selecciona un ambiente:</label>
             <select id="subdirectory" name="subdirectory" class="form-control">
             </select>
             
-            <label for="subsubdirectory">Selecciona un subsubdirectorio:</label>
+            <label for="subsubdirectory">Selecciona un proyecto:</label>
             <select id="subsubdirectory" name="subsubdirectory" class="form-control">
                 <option value=""></option>
             </select>
@@ -49,6 +49,9 @@
                         <input type="hidden" name="directory" value="{{ file_info['directory'] }}">
                         <input type="submit" value="Borrar" class="btn btn-danger">
                     </form>
+                    % if file_info['filename'].endswith('.json') or file_info['filename'].endswith('.txt'):
+                        <a href="/edit/{{ file_info['directory'].replace('archivos_cargados/', '') }}/{{ file_info['filename'] }}" class="btn btn-warning">Previsualizar/Editar</a>
+                    % end
                 </li>
             % end
         </ul>
